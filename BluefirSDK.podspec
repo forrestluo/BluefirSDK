@@ -19,7 +19,8 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
-                   A mobile game platform SDK.
+                   A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
+                   third-party SDK integration, and so on.
                    DESC
 
   s.homepage     = "http://www.kunpo.cc"
@@ -102,7 +103,7 @@ Pod::Spec.new do |s|
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  s.resource_bundles = "BluefirSDK/BluefirSDKBundle.bundle"
+  s.resource = "BluefirSDK/BluefirSDKBundle.bundle"
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
