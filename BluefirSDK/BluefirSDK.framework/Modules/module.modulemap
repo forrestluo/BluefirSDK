@@ -1,0 +1,6 @@
+framework module BluefirSDK {
+  umbrella header "BluefirSDK.h"
+
+  export *
+  module * { export * }
+}
