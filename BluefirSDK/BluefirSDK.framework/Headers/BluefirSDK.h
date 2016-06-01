@@ -10,6 +10,7 @@
 #import <BluefirSDK/BFPlatform.h>
 #import <BluefirSDK/BFObserverDelegate.h>
 #import <BluefirSDK/BFUserData.h>
+#import <BluefirSDK/BFPaymentProduct.h>
 
 //! Project version number for BluefirSDK.
 FOUNDATION_EXPORT double BluefirSDKVersionNumber;
