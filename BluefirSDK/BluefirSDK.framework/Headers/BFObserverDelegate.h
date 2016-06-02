@@ -22,9 +22,13 @@
  *  @param userData 用户信息的类，详细请查看头文件
  */
 - (void)loginNotify:(BFUserData *)userData;
+/**
+ *  退出登录成功时会执行该回调。
+ *  如果您使用用户系统提供的登录界面，可以在退出登录后再调用[BFPlatform showUserSystem]显示登录界面
+ */
+- (void)logoutSuccess;
 
 @optional
-- (void)shareNotify;
 - (void)feedBackNotify;
 /**
  *  当一笔iap支付完成时，本回调会被调用。蓝飞游戏平台SDK的支付部分，客户端SDK在与苹果完成交互，并提交验证票据给蓝飞支付平台后，即会调用该方法，支付验证结果，会由蓝飞支付平台通知游戏服务器，或者由游戏服务器通过相应查询接口进行结果查询（可能需要轮询）。

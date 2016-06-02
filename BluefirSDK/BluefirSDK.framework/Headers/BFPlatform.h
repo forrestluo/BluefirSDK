@@ -22,7 +22,7 @@
  *  启动服务，在application:didFinishLaunchingWithOptions:中调用，用来进行相应的初始化和配置
  */
 + (void)start;
-#pragma mark - 界面相关
+#pragma mark - 用户系统相关
 /**
  *  展示用户系统的集成交互界面，一般在游戏启动时调用(例如在application:didFinishLaunchingWithOptions:中调用)
  */
@@ -36,6 +36,12 @@
  *  @param hintString 您需要设置的提示文字，如果传入的为nil，则会使用默认提示语。
  */
 + (void)setGuestLoginHintString:(NSString *)hintString;
+/**
+ *  退出登录当前账号，当退出登录成功后，会回调BFObserverDelegate协议中的方法logoutSuccess方法，作为通知。
+ *  由于退出登录主要用于游戏平台记录用户行为，所以您可以选择采取调用该方法后不等待回调，立即返回登录界面，也可以
+ *  在收到回调后再返回。
+ */
++ (void)logout;
 
 #pragma mark - 回调相关
 /**
