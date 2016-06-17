@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "BFObserverDelegate.h"
 #import "BFPaymentProduct.h"
 
@@ -45,7 +46,7 @@
 
 #pragma mark - 回调相关
 /**
- *  设置回调代理
+ *  设置回调代理.SDK中所有回调都会通过该代理对象来传达。
  *
  *  @param delegateObject 采纳BFObserverDelegate协议的代理对象。
  */
@@ -74,5 +75,46 @@
  *  @param showHud 是否显示HUD提示，显示的话会禁止UI上的触摸响应（YES的话您不用自己做UI提示）
  */
 + (void)restoreProducts:(BOOL)showHud;
+
+#pragma mark - Game Center相关
+// ********* 说明 ************
+// 对于有用户系统的蓝飞游戏平台来说，Gamecenter不是必须的，提供该接口的原因仅仅是为了满足个别需求。
+// SDK提供的接口都是封装苹果的GameKit中的方法，如果不满足您的需求，您也可以自行使用GameKit。
+
+/**
+ *  GameCenter的一些UI展示需要基于游戏现有的ViewController，请在使用蓝飞SDK的GameCenter相关接口前调用该方法。
+ *  本方法不会对传入的ViewController进行强引用，所以请务必保证在调用其他GameCenter相关接口期间，您设置的controller是有效的。
+ *
+ *  @param theVC 一般是您游戏目前使用的viewController
+ */
++ (void)setupGameCenterUsedViewController:(UIViewController *)theVC;
+/**
+ *  授权，并获取Local Player对象，成功后会回调<BFObserverDelegate>中的gameCenterAuthenticatedWithLocalPlayer:方法
+ */
++ (void)gameCenterAuthenticate;
+/**
+ *  为指定的排行报上报分数.上报如果失败，会回调<BFObserverDelegate>中的gameCenterScoreReportFailed方法
+ *
+ *  @param score         分数
+ *  @param identifierStr 排行榜ID，您在itunesconnect后台配置的排行榜字符串
+ */
++ (void)reportScore:(int64_t)score withLeaderboardID:(NSString *)identifierStr;
+/**
+ *  上传分数有可能失败，每一次提交失败的分数都会保存下来。如果失败，会收到回调gameCenterScoreReportFailed。选择选择合适的时候再次上传，调用该方法可再次上传之前提交失败了的分数。 如果使用GameCenter，建议每次进入游戏或者退出游戏的时候都调用一次该方法。
+ */
++ (void)submitScoresFailedLastTime;
+/**
+ *  使用GKGameCenterViewController来显示指定ID的排行榜
+ *
+ *  @param leaderboardID 排行榜ID字符串
+ */
++ (void)showLeaderBoard:(NSString *)leaderboardID;
+/**
+ *  上报成就，如果上报失败，会会回调<BFObserverDelegate>中的gameCenterReportFailedOfAchievementWithID:andPercentageNum:方法
+ *
+ *  @param identifier      成就ID
+ *  @param percentComplete 成就进度，0.0~100.0之间
+ */
++ (void)reportAchievment:(NSString *)identifier withPercentageComplete:(double)percentComplete;
 
 @end

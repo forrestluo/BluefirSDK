@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.2.3"
+  s.version      = "0.2.4"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
@@ -112,7 +112,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "StoreKit", "Security"
+  s.frameworks = "StoreKit", "Security", "GameKit"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
