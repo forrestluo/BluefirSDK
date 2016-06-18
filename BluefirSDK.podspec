@@ -129,7 +129,7 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.dependency "AFNetworking", "~> 3.0"
   s.dependency "Masonry"
-  s.dependency "ShareSDK3"
+  s.dependency "ShareSDK3", "~> 3.3.1"
   s.dependency "MOBFoundation"
   s.dependency "ShareSDK3/ShareSDKPlatforms/QQ", "~> 3.3.1"
   s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo"
