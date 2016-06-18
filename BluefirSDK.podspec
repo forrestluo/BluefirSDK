@@ -131,7 +131,7 @@ Pod::Spec.new do |s|
   s.dependency "Masonry"
   s.dependency "ShareSDK3"
   s.dependency "MOBFoundation"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/QQ"
+  s.dependency "ShareSDK3/ShareSDKPlatforms/QQ", "~> 3.3.1"
   s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo"
   s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat"
 
