@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   # s.public_header_files = "Classes/**/*.h"
   s.source_files  = "Ads/libChanceAd/*.h", "Ads/joyingAds/include/*.h"
   s.vendored_frameworks = "BluefirSDK/BluefirSDK.framework", "Ads/chartboost/Chartboost.framework"
-  s.vendored_libraries = "Ads/joyingAds/JYMobSDK.a", "Ads/libChanceAd/libChanceAd.a"
+  s.vendored_libraries = "Ads/joyingAds/libJYMobSDK.a", "Ads/libChanceAd/libChanceAd.a"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
