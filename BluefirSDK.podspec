@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.2.5"
+  s.version      = "0.2.6"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
@@ -88,7 +88,9 @@ Pod::Spec.new do |s|
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
-  s.vendored_frameworks = "BluefirSDK/BluefirSDK.framework"
+  s.source_files  = "Ads/libChanceAd/*.h", "Ads/joyingAds/include/*.h"
+  s.vendored_frameworks = "BluefirSDK/BluefirSDK.framework", "Ads/chartboost/Chartboost.framework"
+  spec.vendored_libraries = "Ads/joyingAds/JYMobSDK.a", "Ads/libChanceAd/libChanceAd.a"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -103,7 +105,7 @@ Pod::Spec.new do |s|
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  s.resource = "BluefirSDK/BluefirSDKBundle.bundle"
+  s.resources = "BluefirSDK/BluefirSDKBundle.bundle", "Ads/joyingAds/JyVideo.bundle", "Ads/libChanceAd/ChanceAdRes.bundle"
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -112,8 +114,8 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "StoreKit", "Security", "GameKit"
-
+  s.frameworks = "StoreKit", "Security", "GameKit", "AVFoundation", "WebKit", "AdSupport", "CoreTelephony", "CoreMedia"
+  s.library   = "z"
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
 
@@ -134,5 +136,6 @@ Pod::Spec.new do |s|
   s.dependency "ShareSDK3/ShareSDKPlatforms/QQ", "= 3.3.1"
   s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo"
   s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat"
+  s.dependency "ShareSDK3/ShareSDKUI"
 
 end

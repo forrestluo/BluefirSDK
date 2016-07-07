@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "BFObserverDelegate.h"
 #import "BFPaymentProduct.h"
+#import "BFShareDefines.h"
 
 @interface BFPlatform : NSObject
 /**
@@ -23,6 +24,12 @@
  *  启动服务，在application:didFinishLaunchingWithOptions:中调用，用来进行相应的初始化和配置
  */
 + (void)start;
+/**
+ *  获取当前蓝飞SDK的版本号
+ *
+ *  @return 版本号字符串
+ */
++ (NSString *)sdkVersion;
 #pragma mark - 用户系统相关
 /**
  *  展示用户系统的集成交互界面，一般在游戏启动时调用(例如在application:didFinishLaunchingWithOptions:中调用)
@@ -116,5 +123,40 @@
  *  @param percentComplete 成就进度，0.0~100.0之间
  */
 + (void)reportAchievment:(NSString *)identifier withPercentageComplete:(double)percentComplete;
+
+#pragma mark - 内置浏览器
+/**
+ *  在内置浏览器中显示网页
+ *
+ *  @param url   要显示页面的URL地址
+ *  @param theVC 要在哪个ViewController里显示
+ */
++ (void)showBuiltInWebViewWithURL:(NSString *)url inViewController:(UIViewController *)theVC;
+
+#pragma mark - 游戏属性相关
+/**
+ *  更新在线参数
+ */
++ (void)updateOnlineParameters;
++ (NSDictionary *)getOnlineParameters;
++ (NSString *)getOnlineParameter:(NSString *)keyStr;
+
+#pragma mark - 分享相关
+/**
+ *  弹出分享菜单，进行分享
+ *
+ *  @param text                待分享的文本
+ *  @param images              待分享的图片，传入参数可以为单张图片信息，也可以为一个NSArray，数组元素可以为UIImage、NSString（图片路径）、NSURL（图片路径）
+ *  @param url                 网页路径/应用路径
+ *  @param title               分享标题
+ *  @param itemArray           UI上显示的分享平台图标数组，数组元素为BFSharePlatformType定义枚举对应的int值所构成的NSNumber，例如[NSNumber numberWithUnsignedInteger:BFSharePlatformTypeSinaWeibo].如果为nil，则显示所有目前支持的平台
+ *  @param stateChangedHandler 分享回调Block
+ */
++ (void)showShareViewWithText:(NSString *)text
+                       images:(id)images
+                          url:(NSURL *)url
+                        title:(NSString *)title
+                   shareItems:(NSArray *)itemArray
+               onStateChanged:(BFShareStateChangedHandler)stateChangedHandler;
 
 @end
