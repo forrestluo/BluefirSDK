@@ -9,6 +9,8 @@
 #ifndef BFObserverDelegate_h
 #define BFObserverDelegate_h
 
+#import "BFShareDefines.h"
+
 @class BFObserver;
 @class BFUserData;
 @class BFPaymentProduct;
@@ -33,6 +35,9 @@
 @optional
 #pragma mark - 反馈回调
 - (void)feedBackNotify;
+
+#pragma mark - 分享回调
+- (void)shareCallbackWithState:(BFShareResponseState)state forPlatform:(BFSharePlatformType)platformType maybeError:(NSError *)error;
 
 #pragma mark - iap回调
 /**

@@ -45,6 +45,16 @@
  */
 + (void)setGuestLoginHintString:(NSString *)hintString;
 /**
+ *  静默登录。
+ *  该方法是个性化需求(爸爸去哪儿：全明星提出)，请在不展示登录交互UI的时候使用（不调用showUserSystem方法)。
+ *  其流程为：如果上一次有登录，就用上一次登录的账号登录，如果没有登录过，则直接使用游客进行登录。如果上一次登录的账号，用户系统Token已过期，则重新走各种登录的登录流程
+ */
++ (void)silentLogin;
+/**
+ *  不通过用户系统交互界面的游客登录方法
+ */
++ (void)guestLogin;
+/**
  *  退出登录当前账号，当退出登录成功后，会回调BFObserverDelegate协议中的方法logoutSuccess方法，作为通知。
  *  由于退出登录主要用于游戏平台记录用户行为，所以您可以选择采取调用该方法后不等待回调，立即返回登录界面，也可以
  *  在收到回调后再返回。
@@ -150,13 +160,10 @@
  *  @param url                 网页路径/应用路径
  *  @param title               分享标题
  *  @param itemArray           UI上显示的分享平台图标数组，数组元素为BFSharePlatformType定义枚举对应的int值所构成的NSNumber，例如[NSNumber numberWithUnsignedInteger:BFSharePlatformTypeSinaWeibo].如果为nil，则显示所有目前支持的平台
- *  @param stateChangedHandler 分享回调Block
  */
 + (void)showShareViewWithText:(NSString *)text
                        images:(id)images
                           url:(NSURL *)url
                         title:(NSString *)title
-                   shareItems:(NSArray *)itemArray
-               onStateChanged:(BFShareStateChangedHandler)stateChangedHandler;
-
+                   shareItems:(NSArray *)itemArray;
 @end

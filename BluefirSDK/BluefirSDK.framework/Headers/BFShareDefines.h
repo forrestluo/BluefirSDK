@@ -113,6 +113,4 @@ typedef NS_ENUM(NSUInteger, BFSharePlatformType){
     BFSharePlatformTypeAny                 = 999
 };
 
-typedef void (^BFShareStateChangedHandler)(BFShareResponseState state, BFSharePlatformType platformType, NSError *error);
-
 #endif /* BFShareDefines_h */
