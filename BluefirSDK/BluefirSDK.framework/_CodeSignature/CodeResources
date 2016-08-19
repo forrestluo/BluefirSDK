@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/BFObserverDelegate.h</key>
 		<data>
-		cOu8VbPY8Ib6YYSzVNVrtjZatdE=
+		2A0vUJyY0oHzhIi3qo43l+MrIwE=
 		</data>
 		<key>Headers/BFPaymentProduct.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/BFPlatform.h</key>
 		<data>
-		GdZ7fZUkrlS+rlSg2uZ8U241PW0=
+		xcjhn7GpvKwS1ATa9F11lj2hVjs=
 		</data>
 		<key>Headers/BFShareDefines.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/BFUserData.h</key>
 		<data>
-		jQprhHy7t4xFGvP9ziYQxku/eA4=
+		6Yi4FbeJQOy+iCJsu3T8PFHsTcs=
 		</data>
 		<key>Headers/BluefirSDK.h</key>
 		<data>
@@ -58,11 +58,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cOu8VbPY8Ib6YYSzVNVrtjZatdE=
+			2A0vUJyY0oHzhIi3qo43l+MrIwE=
 			</data>
 			<key>hash2</key>
 			<data>
-			jq3mxlV1yPmyazBxS3iKVuekkGBDyblOH5uyx3vOH9k=
+			TR7t9C/8+kGJzyQW5syx/Jj+KgssQTms3c8M8ZyGrmY=
 			</data>
 		</dict>
 		<key>Headers/BFPaymentProduct.h</key>
@@ -80,11 +80,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GdZ7fZUkrlS+rlSg2uZ8U241PW0=
+			xcjhn7GpvKwS1ATa9F11lj2hVjs=
 			</data>
 			<key>hash2</key>
 			<data>
-			FvGEzHxvX9GM6kIqN1iEjGljb2vTWNsDmrg5IyHd3kM=
+			dkLG4NrsHvHkZ1cEZEP7xGrHJAg1s7s2Bv+fWxDCHL8=
 			</data>
 		</dict>
 		<key>Headers/BFShareDefines.h</key>
@@ -102,11 +102,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jQprhHy7t4xFGvP9ziYQxku/eA4=
+			6Yi4FbeJQOy+iCJsu3T8PFHsTcs=
 			</data>
 			<key>hash2</key>
 			<data>
-			/3XHPs3LwB86g84H24uOrIYaKR8lZFj7RJpKYMaUIs4=
+			VMQ4wVaFHWhu++QI4l6IGcmNgrxINDfwNIQzmuKrP8k=
 			</data>
 		</dict>
 		<key>Headers/BluefirSDK.h</key>

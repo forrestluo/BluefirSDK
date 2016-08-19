@@ -10,9 +10,10 @@
 #define BFObserverDelegate_h
 
 #import "BFShareDefines.h"
+#import "BFUserData.h"
 
 @class BFObserver;
-@class BFUserData;
+//@class BFUserData;
 @class BFPaymentProduct;
 @class GKLocalPlayer;
 
@@ -27,11 +28,33 @@
  */
 - (void)loginNotify:(BFUserData *)userData;
 /**
+ *  静默登录接口，登录失败后会回调该方法，附带当前使用的登录类型
+ *  使用SDK自带UI进行登录的失败情况，不需要用户自行处理，因此该回调只针对静默登录接口生效
+ *
+ *  @param loginType 登录类型，详见枚举定义
+ */
+- (void)loginFailedNotifyWithType:(BFUDUserLoginType)loginType;
+/**
  *  退出登录成功时会执行该回调。
  *  如果您使用用户系统提供的登录界面，可以在退出登录后再调用[BFPlatform showUserSystem]显示登录界面
  */
 - (void)logoutSuccess;
-
+/**
+ *  第三方账号和游客号绑定成功的回调
+ */
+- (void)thirdPartyAccountBindSuccess;
+/**
+ *  第三方账号和游客号绑定失败的回调
+ */
+- (void)thirdPartyAccountBindFailed;
+/**
+ *  蓝飞用户系统注册用户（手机或邮箱）和游客账号绑定成功
+ */
+- (void)bluefirAccountBindSuccess;
+/**
+ *  蓝飞用户系统注册用户（手机或邮箱）和游客账号绑定失败
+ */
+- (void)bluefirAccountBindFailed;
 @optional
 #pragma mark - 反馈回调
 - (void)feedBackNotify;

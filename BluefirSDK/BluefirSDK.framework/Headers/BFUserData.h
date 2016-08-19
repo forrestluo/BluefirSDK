@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, BFUDUserLoginType) {
 @property (strong, nonatomic) NSString *idCard;                //身份证号
 @property (strong, nonatomic) NSString *realName;              //用户的真实姓名
 @property (strong, nonatomic) NSString *gender;                //用户的性别
+@property (strong, nonatomic) NSString *deviceId;              //登录时关联的DeviceID，只有游客登录才会使用
 //当前登录时候使用的UserName，可能是手机，可能是邮箱，如果是游客则为--BFSDKLocalizedString(@"游客", @"")，如果是三方登录，则为”渠道_昵称或号码“
 @property (strong, nonatomic) NSString *currentLoginUserName;
 @property (assign, nonatomic) BFUDUserLoginType loginType;    //用户登录使用的账号类型
