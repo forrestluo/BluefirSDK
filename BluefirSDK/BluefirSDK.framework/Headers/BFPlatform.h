@@ -30,6 +30,16 @@
  *  @return 版本号字符串
  */
 + (NSString *)sdkVersion;
+
+#pragma mark - 基本信息
+/**
+ 获取用户的基础信息，包括设备种类，系统版本，游戏版本等。
+ 返回的dictionary，其key请参见"BFPlatformBasicInfo.h"文件中的定义。
+ 
+ @return 包含基础信息的字典。如果调用该方法时尚未登录，则用户系统相关的value，其值为空字符串。
+ */
++ (NSDictionary *)getBasicUserInfo;
+
 #pragma mark - 用户系统相关
 /**
  *  展示用户系统的集成交互界面，一般在游戏启动时调用(例如在application:didFinishLaunchingWithOptions:中调用)

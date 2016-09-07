@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, BFUDUserLoginType) {
 
 @property (strong, nonatomic) NSString *accessToken;           //用户系统交互使用的Token
 @property (strong, nonatomic) NSDate *expiresDate;             //和用户系统交互的Token过期时间
-@property (strong, nonatomic) NSString *userId;                //用户的识别短号
+@property (strong, nonatomic) NSString *userId;                //用户的识别短号，其实就是用户系统的openid
 @property (strong, nonatomic) NSString *email;                 //用户的电子邮箱
 @property (strong, nonatomic) NSString *phoneNumber;           //用户的手机号码
 @property (strong, nonatomic) NSString *nickName;              //昵称
