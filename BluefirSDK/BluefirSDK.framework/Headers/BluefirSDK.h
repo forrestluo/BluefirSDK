@@ -14,6 +14,7 @@
 #import <BluefirSDK/BFAds.h>
 #import <BluefirSDK/BFShareDefines.h>
 #import <BluefirSDK/BFPlatformBasicInfo.h>
+#import <BluefirSDK/BFReplayKitHandlerDelegate.h>
 
 //! Project version number for BluefirSDK.
 FOUNDATION_EXPORT double BluefirSDKVersionNumber;

@@ -11,6 +11,7 @@
 #import "BFObserverDelegate.h"
 #import "BFPaymentProduct.h"
 #import "BFShareDefines.h"
+#import "BFReplayKitHandlerDelegate.h"
 
 @interface BFPlatform : NSObject
 /**
@@ -94,7 +95,7 @@
 
 #pragma mark - 回调相关
 /**
- *  设置回调代理.SDK中所有回调都会通过该代理对象来传达。
+ *  设置回调代理.SDK中的一些回调会通过该代理对象来传达。
  *
  *  @param delegateObject 采纳BFObserverDelegate协议的代理对象。
  */
@@ -197,4 +198,42 @@
                           url:(NSURL *)url
                         title:(NSString *)title
                    shareItems:(NSArray *)itemArray;
+
+#pragma mark - ReplayKit封装
+/**
+ 判断当前是否支持replayKit功能。
+ 
+ 本SDK不提供录屏按钮的UI，需要各游戏自己根据UI来放置。由于有些设备不支持Replaykit，或者由于正在使用AirPlay或TV-out功能，replaykit会不可用，因此各游戏应当根据本方法来处理录屏按钮的显示状态。
+
+ @return YES - 支持；NO - 不支持
+ */
+- (BOOL)screenRecordAvailable;
+/**
+ 启动屏幕录制。
+ 
+ 屏幕录制功能使用ReplayKit，支持iOS9及以上系统，A7及以上芯片的设备。不符合条件的设备，调用该方法，则没有作用。
+ */
+- (void)startScreenRecord;
+
+/**
+ 停止屏幕录制。
+ 
+ 屏幕录制停止后，代理方法中的screenRecordingHasStopedWithPreviewController:会被调用，返回一个RPPreviewViewController实例。您可以持有该实例的引用，在需要给用户展示刚刚录屏内容时，使用presentViewController:animated:completion:方法，modal的展示这个viewController，在这个controller里，用户可以查看录屏视频，保存，分享。
+ */
+- (void)stopScreenRecord;
+
+/**
+ 放弃本次录屏。
+ 
+ 在不需要刚刚录制的视频时，可以调用该方法，用来放弃上次录屏内容。代理方法中会有相关的回调，如果您在停止录屏时，持有了RPPreviewViewController的引用，可以在回调中进行相关回收处理。
+ */
+- (void)discardScreenRecord;
+
+/**
+ 配置录屏功能的代理对象
+
+ @param theDelegate 符合BFReplayKitHandlerDelegate协议的代理对象
+ */
+- (void)setupScreenRecordDelegate:(id<BFReplayKitHandlerDelegate>)theDelegate;
+
 @end
