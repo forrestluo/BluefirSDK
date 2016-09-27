@@ -14,6 +14,14 @@
 #import "BFReplayKitHandlerDelegate.h"
 
 @interface BFPlatform : NSObject
+
+/**
+ 属性，用来标识当前是否是单机游戏模式，YES - 单机，NO - 联网。默认值为NO。
+ 
+ 如果是单机模式，则silentLogin和guestLogin方法，在网络不通畅或者登录成功等情况下，都不会弹窗提示当前网络状态。
+ */
+@property (assign, nonatomic) BOOL isConsoleGame;
+
 /**
  *  BFPlatform的单例类方法
  *
