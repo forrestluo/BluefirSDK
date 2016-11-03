@@ -244,4 +244,47 @@
  */
 - (void)setupScreenRecordDelegate:(id<BFReplayKitHandlerDelegate>)theDelegate;
 
+#pragma mark - 统计相关
+/**
+ 自定义事件。最简调用，只需传入事件ID。
+ 事件时间为调用时间，事件计数为1。
+
+ @param eventID 用来区分事件的ID，整数类型。
+ */
+- (void)event:(NSInteger)eventID;
+/**
+ 自定义事件。需传入事件ID和事件计数
+
+ @param eventID 用来区分事件的ID，整数类型。
+ @param count 用来记录事件的计数，整数类型。
+ */
+- (void)event:(NSInteger)eventID counter:(NSInteger)count;
+/**
+ 自定义事件。需传入事件ID，事件标签，以及事件计数。
+
+ @param eventID 用来区分事件的ID，整数类型。
+ @param eventLabel 用来区分同一ID下不同事件的标签，字符串类型。
+ @param count 用来记录事件的计数，整数类型。
+ */
+- (void)event:(NSInteger)eventID withLabel:(NSString *)eventLabel counter:(NSInteger)count;
+/**
+ 自定义事件。需传入事件ID，事件标签，事件计数，以及额外描述信息的。
+
+ @param eventID 用来区分事件的ID，整数类型。
+ @param eventLabel 用来区分同一ID下不同事件的标签，字符串类型。
+ @param count 用来记录事件的计数，整数类型。
+ @param infoDict 详细的描述信息，字典类型，key只能为字符串，value只能为数字或字符串。
+ */
+- (void)event:(NSInteger)eventID withLabel:(NSString *)eventLabel counter:(NSInteger)count extraInfo:(NSDictionary *)infoDict;
+/**
+ 自定义事件。需传入事件ID，事件标签，事件计数，额外描述信息，以及需要事件发生的时间。（由于绝大多数情况下，都是在事件发生时就调用来进行统计，所以本方法只应在事件时间需要特别指定时调用。）
+
+ @param eventID 用来区分事件的ID，整数类型。
+ @param eventLabel 用来区分同一ID下不同事件的标签，字符串类型。
+ @param count 用来记录事件的计数，整数类型。
+ @param infoDict 详细的描述信息，字典类型，key只能为字符串，value只能为数字或字符串。
+ @param eventDate 事件的发生时间，NSDate类型。
+ */
+- (void)event:(NSInteger)eventID withLabel:(NSString *)eventLabel counter:(NSInteger)count extraInfo:(NSDictionary *)infoDict andDate:(NSDate *)eventDate;
+
 @end
