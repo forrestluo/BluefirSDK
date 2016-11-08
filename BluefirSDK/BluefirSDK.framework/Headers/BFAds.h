@@ -12,7 +12,8 @@ typedef NS_ENUM(NSUInteger, BFAdsProviderType) {
     BFAdsProviderChance = 0,        //畅思广告, v6.3.0
     BFAdsProviderJoying = 1,        //掌盈广告, v3.0.6
     BFAdsProviderChartboost = 2,    //Chartboost, v6.4.6
-    BFAdsProviderVungle             //Vungle, v4.0.6
+    BFAdsProviderVungle,            //Vungle, v4.0.6
+    BFAdsProviderDomod              //多盟, v3.3.5
 };
 
 @protocol BFAdsDelegate <NSObject>
