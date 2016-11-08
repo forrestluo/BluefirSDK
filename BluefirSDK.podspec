@@ -88,9 +88,9 @@ Pod::Spec.new do |s|
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
-  s.source_files  = "Ads/libChanceAd/*.h", "Ads/joyingAds/include/*.h", "/Ads/domob/Headers/*.h"
+  s.source_files  = "Ads/libChanceAd/*.h", "Ads/joyingAds/include/*.h", "Ads/domob/Headers/*.h"
   s.vendored_frameworks = "BluefirSDK/BluefirSDK.framework", "Ads/chartboost/Chartboost.framework"
-  s.vendored_libraries = "Ads/joyingAds/libJYMobSDK.a", "Ads/libChanceAd/libChanceAd.a", "/Ads/domob/libIndependentVideoSDK.a"
+  s.vendored_libraries = "Ads/joyingAds/libJYMobSDK.a", "Ads/libChanceAd/libChanceAd.a", "Ads/domob/libIndependentVideoSDK.a"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  s.resources = "BluefirSDK/BluefirSDKBundle.bundle", "Ads/joyingAds/JyVideo.bundle", "Ads/libChanceAd/ChanceAdRes.bundle", "/Ads/domob/IndependentVideoBundle.bundle"
+  s.resources = "BluefirSDK/BluefirSDKBundle.bundle", "Ads/joyingAds/JyVideo.bundle", "Ads/libChanceAd/ChanceAdRes.bundle", "Ads/domob/IndependentVideoBundle.bundle"
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
