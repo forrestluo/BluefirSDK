@@ -64,13 +64,31 @@
 
 #pragma mark - iap回调
 /**
+ 支付完成但是尚未和服务器进行票据验证时的回调
+
+ @param product 支付的商品，BFPaymentProduct对象
+ */
+- (void)iapPaymentCompletedButNotVerifyYetWithProduct:(BFPaymentProduct *)product;
+/**
  *  当一笔iap支付完成时，本回调会被调用。蓝飞游戏平台SDK的支付部分，客户端SDK在与苹果完成交互，并提交验证票据给蓝飞支付平台后，即会调用该方法，支付验证结果，会由蓝飞支付平台通知游戏服务器，或者由游戏服务器通过相应查询接口进行结果查询（可能需要轮询）。
  *  收到该回调后，游戏客户端可以提示用户支付正在完成，请等待发货，然后当游戏服务器确认该笔订单校验通过后，再进行发货和提示用户支付完成
  *
  *  @param product 支付的商品，BFPaymentProduct对象
  */
 - (void)iapPaymentFinishedWithProduct:(BFPaymentProduct *)product;
+/**
+ 支付本身失败的回调，还未进行支付验证
+
+ @param hintString 失败的提示信息
+ */
 - (void)iapPaymentFailedWithHint:(NSString *)hintString;
+/**
+ 支付验证失败
+
+ @param hintString 支付验证失败的提示信息
+ */
+- (void)iapPaymentVerifyFailedWithHint:(NSString *)hintString;
+
 - (void)iapRestoreFinishedWithProductIDs:(NSArray *)productIDArray;
 - (void)iapRestoreFailedWithError:(NSError *)error;
 #pragma mark - Game Center回调

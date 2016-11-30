@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, BFAdsProviderType) {
     BFAdsProviderJoying = 1,        //掌盈广告, v3.0.6
     BFAdsProviderChartboost = 2,    //Chartboost, v6.4.6
     BFAdsProviderVungle,            //Vungle, v4.0.6
-    BFAdsProviderDomod              //多盟, v3.3.5
+    BFAdsProviderDomod              //多盟, v3.5.0
 };
 
 @protocol BFAdsDelegate <NSObject>
@@ -38,6 +38,26 @@ typedef NS_ENUM(NSUInteger, BFAdsProviderType) {
  */
 - (void)successOfVideoAdsForProvider:(BFAdsProviderType)providerType;
 
+/**
+ 目前无法弹出插屏广告，主要是由于广告设置没有初始化成功造成。
+
+ @param providerType BFAdsProviderType枚举类型，用来区分广告提供商
+ */
+- (void)canNotPopInterstitialAdsForProvider:(BFAdsProviderType)providerType;
+/**
+ 插屏广告没能成功弹出
+
+ @param providerType BFAdsProviderType枚举类型，用来区分广告提供商
+ */
+- (void)failedOfInterstitialAdsForProvider:(BFAdsProviderType)providerType;
+
+/**
+ 插屏广告弹出成功
+
+ @param providerType BFAdsProviderType枚举类型，用来区分广告提供商
+ */
+- (void)successOfInterstitialAdsForProvider:(BFAdsProviderType)providerType;
+
 @end
 
 @interface BFAds : NSObject
@@ -58,9 +78,16 @@ typedef NS_ENUM(NSUInteger, BFAdsProviderType) {
  */
 - (void)setupAndStart;
 /**
- *  展示指定广告提供商的广告
+ *  展示指定广告提供商的视频广告
  *
  *  @param providerType BFAdsProviderType枚举类型，用来区分广告提供商
  */
 - (void)showVideoAdOfProvider:(BFAdsProviderType)providerType;
+/**
+ 展示指定广告提供商的插屏广告（当前只支持畅思的插屏广告）
+
+ @param providerType BFAdsProviderType枚举类型，用来区分广告提供商
+ */
+- (void)showInterstitialAdOfProvider:(BFAdsProviderType)providerType;
+
 @end
