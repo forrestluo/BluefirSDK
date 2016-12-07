@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.2.18"
+  s.version      = "0.2.19"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   # s.public_header_files = "Classes/**/*.h"
   s.source_files  = "Ads/libChanceAd/*.h", "Ads/joyingAds/include/*.h", "Ads/domob/Headers/*.h"
   s.vendored_frameworks = "BluefirSDK/BluefirSDK.framework", "Ads/chartboost/Chartboost.framework"
-  s.vendored_libraries = "Ads/joyingAds/libJYMobSDK.a", "Ads/libChanceAd/libChanceAd.a", "Ads/domob/libIndependentVideoSDK.a"
+  s.vendored_libraries = "Ads/joyingAds/UMVideoSDK.a", "Ads/libChanceAd/libChanceAd.a", "Ads/domob/libIndependentVideoSDK.a"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  s.resources = "BluefirSDK/BluefirSDKBundle.bundle", "Ads/joyingAds/JyVideo.bundle", "Ads/libChanceAd/ChanceAdRes.bundle", "Ads/domob/IndependentVideoBundle.bundle"
+  s.resources = "BluefirSDK/BluefirSDKBundle.bundle", "Ads/joyingAds/UMVideo.bundle", "Ads/libChanceAd/ChanceAdRes.bundle", "Ads/domob/IndependentVideoBundle.bundle"
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

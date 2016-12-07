@@ -127,6 +127,12 @@
              callbackUrl:(NSString *)url
                  showHud:(BOOL)isShow;
 /**
+ 改变是否与服务器验证的设置，默认为需要与服务器验证。如果不需要随订单改变，则仅需要设置一次。
+
+ @param validationOrNot YES - 需要支付验证；NO - 不需要支付验证
+ */
++ (void)changePaymentValidationStatus:(BOOL)validationOrNot;
+/**
  *  恢复内购，仅在您的游戏里付费点有非消费型或者订阅型时才有用
  *
  *  @param showHud 是否显示HUD提示，显示的话会禁止UI上的触摸响应（YES的话您不用自己做UI提示）
