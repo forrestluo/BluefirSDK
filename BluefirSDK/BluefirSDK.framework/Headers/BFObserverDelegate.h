@@ -88,8 +88,27 @@
  @param hintString 支付验证失败的提示信息
  */
 - (void)iapPaymentVerifyFailedWithHint:(NSString *)hintString;
+/**
+ 通过getInfoFromAppStoreForProducts方法获取商品数据（以得到本地化商品信息），成功后的回调
 
+ @param productArray 一个数组，数组中的每个元素都是SKProduct
+ */
+- (void)iapGetInfoFromAppStoreSuccessWithProducts:(NSArray *)productArray;
+/**
+ 通过getInfoFromAppStoreForProducts方法获取商品数据失败，未能拿到有效数据，通常是因为查询的productID不对。
+ */
+- (void)iapGetInfoFromAppStoreFailedWithZeroValidInfo;
+/**
+ 恢复内购成功的回调
+
+ @param productIDArray 一个数组，包含了所有恢复内购成功商品的product Id
+ */
 - (void)iapRestoreFinishedWithProductIDs:(NSArray *)productIDArray;
+/**
+ 恢复内购失败的回调
+
+ @param error 失败信息
+ */
 - (void)iapRestoreFailedWithError:(NSError *)error;
 #pragma mark - Game Center回调
 /**

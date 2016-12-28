@@ -127,6 +127,13 @@
              callbackUrl:(NSString *)url
                  showHud:(BOOL)isShow;
 /**
+ 从AppStore获取产品信息，主要用于单机游戏在不同国家地区获取本地的价格、单位和描述。查询结果通过
+ 
+ 注意：由于上面的payWithProductId也会先查询商品信息，而网络请求可能有延迟，所以本方法最好不要和上述的支付方法同时使用，以免处理错误。
+ @param productIDArray 一个NSArray，元素是待查询的
+ */
++ (void)getInfoFromAppStoreForProducts:(NSArray *)productIDArray;
+/**
  改变是否与服务器验证的设置，默认为需要与服务器验证。如果不需要随订单改变，则仅需要设置一次。
 
  @param validationOrNot YES - 需要支付验证；NO - 不需要支付验证
