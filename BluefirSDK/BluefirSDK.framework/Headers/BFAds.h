@@ -10,10 +10,10 @@
 
 typedef NS_ENUM(NSUInteger, BFAdsProviderType) {
     BFAdsProviderChance = 0,        //畅思广告, v6.3.0
-    BFAdsProviderJoying = 1,        //有米（也就是掌盈）广告, v4.1.3
-    BFAdsProviderChartboost = 2,    //Chartboost, v6.4.6
-    BFAdsProviderVungle,            //Vungle, v4.0.6
-    BFAdsProviderDomod              //多盟, v3.5.0
+    BFAdsProviderJoying = 1,        //有米（也就是掌盈）广告, v4.1.3 (支持https)
+    BFAdsProviderChartboost = 2,    //Chartboost, v6.6.0 (支持https)
+    BFAdsProviderVungle,            //Vungle, 通过cocoaPods引入最新版本 (支持https)
+    BFAdsProviderDomod              //多盟, v3.5.0 (支持https)
 };
 
 @protocol BFAdsDelegate <NSObject>
