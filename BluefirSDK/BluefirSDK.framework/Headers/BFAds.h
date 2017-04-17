@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, BFAdsProviderType) {
     BFAdsProviderJoying = 1,        //有米（也就是掌盈）广告, v4.1.3 (支持https)
     BFAdsProviderChartboost = 2,    //Chartboost, v6.6.0 (支持https)
     BFAdsProviderVungle,            //Vungle, 通过cocoaPods引入最新版本 (支持https)
-    BFAdsProviderDomod              //多盟, v3.5.0 (支持https)
+    BFAdsProviderDomod              //多盟, v3.5.2 (支持https)
 };
 
 @protocol BFAdsDelegate <NSObject>
