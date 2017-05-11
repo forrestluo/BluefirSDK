@@ -30,9 +30,12 @@
 + (instancetype)sharedBFPlatform;
 #pragma mark - 基础
 /**
- *  启动服务，在application:didFinishLaunchingWithOptions:中调用，用来进行相应的初始化和配置
+ *  启动服务，在application:didFinishLaunchingWithOptions:中调用，用来进行相应的初始化和配置。
+ *  ConfigDict中是三方平台的AppID和AppKey。如果要支持三方登录或者分享，该平台的AppID和Appkey（或AppSecret），需要包含在该字典中。
+ *  如果不需要三方登录或者分享功能，则configDict可传入nil。
+ *  例如：@{@"QQAppID":@"xxx", @"QQAppKey":@"xxx", @"WXAppID":@"xxx", @"WXAppKey":@"xxx"}
  */
-+ (void)start;
++ (void)startWithConfigDict:(NSDictionary *)configDict;
 /**
  *  获取当前蓝飞SDK的版本号
  *
@@ -54,6 +57,10 @@
  *  展示用户系统的集成交互界面，一般在游戏启动时调用(例如在application:didFinishLaunchingWithOptions:中调用)
  */
 + (void)showUserSystem;
+/**
+ 展示用户系统的集成交互界面，但是不提供快速游戏（游客登录）按钮。
+ */
++ (void)showUserSystemWithoutGuestLogin;
 /**
  *  展示绑定账号的UI，用来进行游客账号与正式账号的绑定操作，只会在游客登录的情况下显示。
  */
