@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.3.1"
+  s.version      = "0.3.2"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
@@ -131,13 +131,13 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.dependency "AFNetworking", "~> 3.0"
   s.dependency "Masonry"
-  s.dependency "ShareSDK3"
-  s.dependency "MOBFoundation"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/QQ"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat"
-  s.dependency "ShareSDK3/ShareSDKUI"
-  s.dependency "ShareSDK3/ShareSDKExtension"
+  s.dependency "ShareSDK3", "= 3.6.3"
+  s.dependency "MOBFoundation", "= 2.2.19"
+  s.dependency "ShareSDK3/ShareSDKPlatforms/QQ", "= 3.6.3"
+  s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo", "= 3.6.3"
+  s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat", "= 3.6.3"
+  s.dependency "ShareSDK3/ShareSDKUI", "= 3.6.3"
+  s.dependency "ShareSDK3/ShareSDKExtension", "= 3.6.3"
   s.dependency "VungleSDK-iOS"
 
 end
