@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.3.2"
+  s.version      = "0.3.3"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
-                   third-party SDK integration, and so on.
+                   third-party SDK integration, and so on. Ver. 0.3.3 delete the video ads support.
                    DESC
 
   s.homepage     = "http://www.kunpo.cc"
@@ -88,9 +88,7 @@ Pod::Spec.new do |s|
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
-  s.source_files  = "Ads/libChanceAd/*.h", "Ads/joyingAds/include/*.h", "Ads/domob/Headers/*.h"
-  s.vendored_frameworks = "BluefirSDK/BluefirSDK.framework", "Ads/chartboost/Chartboost.framework"
-  s.vendored_libraries = "Ads/joyingAds/libUMVideoSDK.a", "Ads/libChanceAd/libChanceAd.a", "Ads/domob/libIndependentVideoSDK.a"
+  s.vendored_frameworks = "BluefirSDK/BluefirSDK.framework"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -105,7 +103,7 @@ Pod::Spec.new do |s|
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  s.resources = "BluefirSDK/BluefirSDKBundle.bundle", "Ads/joyingAds/UMVideo.bundle", "Ads/libChanceAd/ChanceAdRes.bundle", "Ads/domob/IndependentVideoBundle.bundle"
+  s.resources = "BluefirSDK/BluefirSDKBundle.bundle"
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -138,6 +136,5 @@ Pod::Spec.new do |s|
   s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat", "= 3.6.3"
   s.dependency "ShareSDK3/ShareSDKUI", "= 3.6.3"
   s.dependency "ShareSDK3/ShareSDKExtension", "= 3.6.3"
-  s.dependency "VungleSDK-iOS"
 
 end
