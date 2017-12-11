@@ -52,11 +52,18 @@
  */
 + (NSDictionary *)getBasicUserInfo;
 /**
- 判断当前iOS设备是否为wifi网络连通
+ 判断当前iOS设备是否为wifi网络连通的快捷方法
 
  @return Yes - wifi连接
  */
 + (BOOL)isWifiReachable;
+
+/**
+ 返回当前的网络状态，无连接，wifi，还是WWAN
+
+ @return BFNetworkReachableStatus枚举
+ */
++(BFNetworkReachableStatus)currentNetworkStatus;
 
 #pragma mark - 用户系统相关
 /**
@@ -216,6 +223,9 @@
 + (void)updateOnlineParameters;
 + (NSDictionary *)getOnlineParameters;
 + (NSString *)getOnlineParameter:(NSString *)keyStr;
+
++ (void)updateAnnouncement;
++ (NSArray *)getAnnouncement;
 
 #pragma mark - 分享相关
 /**

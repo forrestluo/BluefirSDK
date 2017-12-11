@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, BFIAPType) {
     BFIAPAutoRenewableSubscription = 2,  //包月+自动续费
     BFIAPFreeSubscription = 3,           //免费订阅
     BFIAPNonRenewableSubscription = 4,   //包月+非自动续费
+    BFIAPUnknown = 5,
 };
 
 @interface BFPaymentProduct : NSObject <NSCoding>

@@ -12,6 +12,12 @@
 #import "BFShareDefines.h"
 #import "BFUserData.h"
 
+typedef NS_ENUM(NSInteger, BFNetworkReachableStatus) {
+    BFNetworkNotReachable = 0,
+    BFNetworkReachableViaWiFi,
+    BFNetworkReachableViaWWAN
+};
+
 @class BFObserver;
 //@class BFUserData;
 @class BFPaymentProduct;
@@ -56,6 +62,16 @@
  */
 - (void)bluefirAccountBindFailed;
 @optional
+
+#pragma mark - 设备的网络状态发生变化的回调
+/**
+ 该回调在网络状态发生变化时将被调用
+
+ @param networkStatus 枚举：BFNetworkNotReachable - 无网络，BFNetworkReachableViaWiFi - wifi，BFNetworkReachableViaWWAN - 移动网络
+ @param isRequire YES - 设备连着WWAN或Wifi，但需要建立连接后网络才可用，NO - wifi或WWAN时直接可以访问互联网，无网络时该值也为NO。
+ */
+- (void)networkStatusChanged:(BFNetworkReachableStatus)networkStatus requiredConnection:(BOOL)isRequire;
+
 #pragma mark - 反馈回调
 - (void)feedBackNotify;
 

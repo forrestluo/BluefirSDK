@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.3.3"
+  s.version      = "0.3.4"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
@@ -134,6 +134,8 @@ Pod::Spec.new do |s|
   s.dependency "ShareSDK3/ShareSDKPlatforms/QQ", "= 3.6.3"
   s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo", "= 3.6.3"
   s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat", "= 3.6.3"
+  s.dependency "ShareSDK3/ShareSDKPlatforms/Facebook", "= 3.6.3"
+  s.dependency "ShareSDK3/ShareSDKPlatforms/Twitter", "= 3.6.3"
   s.dependency "ShareSDK3/ShareSDKUI", "= 3.6.3"
   s.dependency "ShareSDK3/ShareSDKExtension", "= 3.6.3"
 
