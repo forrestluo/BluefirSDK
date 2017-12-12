@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.3.4"
+  s.version      = "0.4.0"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
   #  If this Pod runs only on iOS or OS X, then specify the platform and
   #  the deployment target. You can optionally include the target after the platform.
   #
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -129,14 +129,13 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.dependency "AFNetworking", "~> 3.0"
   s.dependency "Masonry"
-  s.dependency "ShareSDK3", "= 3.6.3"
-  s.dependency "MOBFoundation", "= 2.2.19"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/QQ", "= 3.6.3"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo", "= 3.6.3"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat", "= 3.6.3"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/Facebook", "= 3.6.3"
-  s.dependency "ShareSDK3/ShareSDKPlatforms/Twitter", "= 3.6.3"
-  s.dependency "ShareSDK3/ShareSDKUI", "= 3.6.3"
-  s.dependency "ShareSDK3/ShareSDKExtension", "= 3.6.3"
+  s.dependency "mob_sharesdk"
+  s.dependency "mob_sharesdk/ShareSDKUI"
+  s.dependency "mob_sharesdk/ShareSDKExtension"
+  s.dependency "mob_sharesdk/ShareSDKPlatforms/QQ"
+  s.dependency "mob_sharesdk/ShareSDKPlatforms/SinaWeibo"
+  s.dependency "mob_sharesdk/ShareSDKPlatforms/WeChat"
+  s.dependency "mob_sharesdk/ShareSDKPlatforms/Facebook"
+  s.dependency "mob_sharesdk/ShareSDKPlatforms/Twitter"
 
 end
