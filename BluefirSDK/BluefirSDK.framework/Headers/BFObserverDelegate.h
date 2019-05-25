@@ -48,7 +48,7 @@ typedef NS_ENUM(NSInteger, BFNetworkReachableStatus) {
 /**
  *  第三方账号和游客号绑定成功的回调
  */
-- (void)thirdPartyAccountBindSuccess;
+- (void)thirdPartyAccountBindSuccess:(BFUserData *)user;
 /**
  *  第三方账号和游客号绑定失败的回调
  */
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, BFNetworkReachableStatus) {
 /**
  *  蓝飞用户系统注册用户（手机或邮箱）和游客账号绑定成功
  */
-- (void)bluefirAccountBindSuccess;
+- (void)bluefirAccountBindSuccess:(BFUserData *)user;
 /**
  *  蓝飞用户系统注册用户（手机或邮箱）和游客账号绑定失败
  */
@@ -95,25 +95,36 @@ typedef NS_ENUM(NSInteger, BFNetworkReachableStatus) {
 /**
  支付本身失败的回调，还未进行支付验证
 
- @param hintString 失败的提示信息
+ @param product 支付的商品，BFPaymentProduct对象
+ @param hintString 提示文字
  */
-- (void)iapPaymentFailedWithHint:(NSString *)hintString;
+- (void)iapPaymentFailedWithProduct:(BFPaymentProduct *)product andHint:(NSString *)hintString;
 /**
  支付验证失败
 
- @param hintString 支付验证失败的提示信息
+ @param product 支付的商品，BFPaymentProduct对象
+ @param errorCode 错误码
+                    "-99995"：支付票据为空；
+                    "-99996"：订单ID为空；
+                    "-99997"：没能收到正确的验证Response；
+                    "-99998"：验证网络超时；
+                    "-99999"：支付服务器故障，返回值不对；
+                    其他：SDK支付服务器返回的错误码
  */
-- (void)iapPaymentVerifyFailedWithHint:(NSString *)hintString;
+- (void)iapPaymentVerifyFailedWithProduct:(BFPaymentProduct *)product andErrorCode:(NSString *)errorCode;
 /**
  通过getInfoFromAppStoreForProducts方法获取商品数据（以得到本地化商品信息），成功后的回调
 
  @param productArray 一个数组，数组中的每个元素都是SKProduct
  */
 - (void)iapGetInfoFromAppStoreSuccessWithProducts:(NSArray *)productArray;
+
 /**
  通过getInfoFromAppStoreForProducts方法获取商品数据失败，未能拿到有效数据，通常是因为查询的productID不对。
+
+ @param errorProductIDs 错误的productID组成的数组
  */
-- (void)iapGetInfoFromAppStoreFailedWithZeroValidInfo;
+- (void)iapGetInfoFromAppStoreFailedWithProductIDs:(NSArray *)errorProductIDs;
 /**
  恢复内购成功的回调
 
@@ -126,6 +137,9 @@ typedef NS_ENUM(NSInteger, BFNetworkReachableStatus) {
  @param error 失败信息
  */
 - (void)iapRestoreFailedWithError:(NSError *)error;
+
+//仅在iOS11及以上会调用
+- (void)appstorePromotionIAPTriggered;
 #pragma mark - Game Center回调
 /**
  *  已经登录Gamecenter，并成功拿到授权的本地player对象

@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BluefirSDK"
-  s.version      = "0.4.0"
+  s.version      = "0.5.0"
   s.summary      = "BluefirSDK is an platform SDK for mobile games"
   s.description  = <<-DESC
                    A mobile game platform SDK. User System, Payment, Feedback, In-game webView, Data report, Share,
-                   third-party SDK integration, and so on. Ver. 0.3.3 delete the video ads support.
+                   third-party SDK integration, and so on. Ver. 0.5.0 update iAP and wechat login features.
                    DESC
 
   s.homepage     = "http://www.kunpo.cc"

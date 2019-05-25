@@ -43,6 +43,8 @@
  */
 + (NSString *)sdkVersion;
 
++ (BOOL)handleOpenURL:(NSURL *)url;
+
 #pragma mark - 基本信息
 /**
  获取用户的基础信息，包括设备种类，系统版本，游戏版本等。
@@ -131,6 +133,12 @@
 
 #pragma mark - 支付相关
 /**
+ *  开启或关闭iAP的SKPaymentQueue监听。
+ *
+ *  @param theSwitch YES-开启，NO-关闭。
+ */
++ (void)enableIAPObserver:(BOOL)theSwitch;
+/**
  *  调用支付功能，进行IAP支付
  *
  *  @param productId   商品ID，需在蓝飞游戏平台配置，与苹果IAP绑定（必填）
@@ -138,6 +146,7 @@
  *  @param zoneId      游戏分区（必填）
  *  @param message     自定义的消息，最后会透传给游戏服务器（选填）
  *  @param url         支付验证完成后的服务器回调地址（选填）。如果没有填，则会以蓝飞支付平台后台配置的回调地址为准，如果填写了，则以填写的为准，一般在使用测试服时才填写该项，正式运营时建议不要使用该参数，接入者需保证蓝飞支付平台后台配置正确内容
+ *  @param openId      用户登录后分配的openID
  *  @param isShow      是否显示HUD提示，显示的话会禁止UI上的触摸响应（YES的话您不用自己做UI提示），但由于iap支付期间苹果会自己弹出提示框，所以最好未收到支付完成回调前，还是手动屏蔽掉支付按钮的响应，以防用户反复点击
  */
 + (void)payWithProductId:(NSString *)productId
@@ -145,6 +154,7 @@
                   zoneId:(NSString *)zoneId
            customMessage:(NSString *)message
              callbackUrl:(NSString *)url
+              userOpenId:(NSString *)openId
                  showHud:(BOOL)isShow;
 /**
  从AppStore获取产品信息，主要用于单机游戏在不同国家地区获取本地的价格、单位和描述。查询结果通过
@@ -165,6 +175,14 @@
  *  @param showHud 是否显示HUD提示，显示的话会禁止UI上的触摸响应（YES的话您不用自己做UI提示）
  */
 + (void)restoreProducts:(BOOL)showHud;
+/**
+ 主动检查用户有没有通过Appstore点击跳转来进行应用内购买
+ 
+ @return iAP的productID，如果为空，说明目前没有promotion的IAP等待支付
+ */
++ (NSString *)checkPromotionPayment;
+//支付可能需要支付的promotion IAP
++ (void)makePaymentForPromotionIAPIfNeeded:(NSString *)openID;
 
 #pragma mark - Game Center相关
 // ********* 说明 ************
@@ -216,6 +234,17 @@
  */
 + (void)showBuiltInWebViewWithURL:(NSString *)url inViewController:(UIViewController *)theVC;
 
+#pragma mark - 游戏内邮件
+
+/**
+ 在游戏中用模态对话框来发送邮件，所有入参都不能为nil
+
+ @param recipient 收件人，一般填公司客服邮箱
+ @param subject 邮件标题
+ @param content 邮件中要附加的正文
+ */
++ (void)sendMailTo:(NSString *)recipient withSubject:(NSString *)subject andContent:(NSString *)content;
+
 #pragma mark - 游戏属性相关
 /**
  *  更新在线参数
@@ -233,7 +262,7 @@
  *
  *  @param text                待分享的文本
  *  @param images              待分享的图片，传入参数可以为单张图片信息，也可以为一个NSArray，数组元素可以为UIImage、NSString（图片路径）、NSURL（图片路径）
- *  @param url                 网页路径/应用路径
+ *  @param url                 网页路径/应用路径，如果为nil，则微信QQ上是大图分享
  *  @param title               分享标题
  *  @param itemArray           UI上显示的分享平台图标数组，数组元素为BFSharePlatformType定义枚举对应的int值所构成的NSNumber，例如[NSNumber numberWithUnsignedInteger:BFSharePlatformTypeSinaWeibo].如果为nil，则显示所有目前支持的平台
  */
@@ -243,6 +272,20 @@
                         title:(NSString *)title
                    shareItems:(NSArray *)itemArray;
 
+/**
+ *  无UI分享，针对某个平台直接进行分享
+ *
+ *  @param text                待分享的文本
+ *  @param images              待分享的图片，传入参数可以为单张图片信息，也可以为一个NSArray，数组元素可以为UIImage、NSString（图片路径）、NSURL（图片路径）
+ *  @param url                 网页路径/应用路径，如果为nil，则微信QQ上是大图分享
+ *  @param title               分享标题
+ *  @param platformType        将要分享到的平台，值为BFSharePlatformType的枚举，例如分享给微信好友，则传入BFSharePlatformSubTypeWechatSession
+ */
++ (void)shareWithText:(NSString *)text
+               images:(id)images
+                  url:(NSURL *)url
+                title:(NSString *)title
+              shareTo:(BFSharePlatformType)platformType;
 #pragma mark - ReplayKit封装
 /**
  判断当前是否支持replayKit功能。

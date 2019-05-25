@@ -17,6 +17,12 @@ typedef NS_ENUM(NSUInteger, BFIAPType) {
     BFIAPUnknown = 5,
 };
 
+typedef NS_ENUM(NSUInteger, BFPaymentState) {
+    BFPaymentStateNotPay = 0,             //还未付款
+    BFPaymentStatePayed = 1,              //已付款，未发货
+    BFPaymentStateDelivered = 2,          //已验证完票据（应发货）
+};
+
 @interface BFPaymentProduct : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *productID;      //商品ID，在itunesconnect后台配置
@@ -27,7 +33,12 @@ typedef NS_ENUM(NSUInteger, BFIAPType) {
 @property (nonatomic, strong) NSString *orderID;        //蓝飞游戏支付平台创建的支付ID
 @property (nonatomic, strong) NSString *receipt;        //苹果返回的校验用支付票据
 @property (nonatomic, strong) NSString *transactionIdentifier; //苹果iAP支付生成的transactionID
+@property (nonatomic, strong) NSString *uid;            //用户的open_id
+@property (nonatomic, strong) NSDate *createDate;       //创建时间
+@property (nonatomic, strong) NSDate *transactionDate;  //支付时间
+@property (nonatomic, strong) NSDate *verifyDate;       //票据验证完成时间
+@property (nonatomic, assign) BFPaymentState payState;  //支付状态
 
-+ (BFPaymentProduct *)productWithID:(NSString *)productId type:(BFIAPType)productType zoneID:(NSString *)zoneID customMessage:(NSString *)message callbackUrl:(NSString *)url;
++ (BFPaymentProduct *)productWithID:(NSString *)productId type:(BFIAPType)productType zoneID:(NSString *)zoneID customMessage:(NSString *)message callbackUrl:(NSString *)url userOpenId:(NSString *)openID;
 
 @end
